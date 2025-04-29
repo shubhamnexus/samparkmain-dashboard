@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes circle-sweep {
+  0% {
+    clip-path: polygon(50% 50%, 50% 0%, 50% 0%);
+  }
+  25% {
+    clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 100%);
+  }
+  50% {
+    clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 100%, 50% 100%);
+  }
+  75% {
+    clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 100%, 50% 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 100%, 50% 100%, 0% 100%, 0% 0%);
+  }
+}
+
+.pie-chart-container {
+  position: relative;
+}
+
+.pie-chart-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  animation: circle-sweep 2s ease-in-out forwards;
+  pointer-events: none;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Remove focus outline from Select components */
+.SelectTrigger,
+.SelectTrigger:focus,
+.SelectTrigger:focus-visible,
+.SelectTrigger[data-state="open"],
+.SelectTrigger[data-state="open"]:focus,
+.SelectTrigger[data-state="open"]:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: rgb(229, 231, 235) !important;
+}
+
+.SelectContent {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 24 95% 53%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 24 95% 90%;
+    --secondary-foreground: 24 95% 53%;
+    --muted: 24 95% 90%;
+    --muted-foreground: 24 95% 53%;
+    --accent: 24 95% 90%;
+    --accent-foreground: 24 95% 53%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 24 95% 90%;
+    --input: 24 95% 90%;
+    --ring: 24 95% 53%;
+    --chart-1: 24 95% 53%;
+    --chart-2: 24 95% 45%;
+    --chart-3: 24 95% 40%;
+    --chart-4: 24 95% 35%;
+    --chart-5: 24 95% 30%;
+    --radius: 0.5rem;
+    --sidebar-background: 24 95% 98%;
+    --sidebar-foreground: 24 95% 20%;
+    --sidebar-primary: 24 95% 53%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 24 95% 90%;
+    --sidebar-accent-foreground: 24 95% 53%;
+    --sidebar-border: 24 95% 90%;
+    --sidebar-ring: 24 95% 53%;
+  }
+  .dark {
+    --background: 24 95% 10%;
+    --foreground: 0 0% 98%;
+    --card: 24 95% 15%;
+    --card-foreground: 0 0% 98%;
+    --popover: 24 95% 15%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 24 95% 53%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 24 95% 20%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 24 95% 20%;
+    --muted-foreground: 24 95% 70%;
+    --accent: 24 95% 20%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 24 95% 20%;
+    --input: 24 95% 20%;
+    --ring: 24 95% 53%;
+    --chart-1: 24 95% 53%;
+    --chart-2: 24 95% 45%;
+    --chart-3: 24 95% 40%;
+    --chart-4: 24 95% 35%;
+    --chart-5: 24 95% 30%;
+    --sidebar-background: 24 95% 15%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 24 95% 53%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 24 95% 20%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 24 95% 20%;
+    --sidebar-ring: 24 95% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
