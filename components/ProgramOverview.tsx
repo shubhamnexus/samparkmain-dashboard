@@ -1488,11 +1488,35 @@ export function ProgramOverview({
             {/* Decorative gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-br from-orange-50/0 to-orange-100/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             
-            <CardHeader className="relative">
-              <CardTitle className="text-gray-800 group-hover:text-orange-800 transition-colors duration-300">District Statistics</CardTitle>
+            <CardHeader className="relative flex flex-row items-start justify-between pt-2 pb-2">
+              <CardTitle className="text-gray-800 group-hover:text-orange-800 transition-colors duration-300 mt-4">District Statistics</CardTitle>
+              <DialogTrigger asChild>
+                <Button 
+                  variant="outline" 
+                  className="bg-white/90 backdrop-blur-sm border-orange-500/30 hover:bg-orange-50 hover:border-orange-500/50 text-orange-600 hover:text-orange-700 transition-all duration-200 shadow-sm hover:shadow-md group/btn -mt-6 flex items-center gap-2"
+                >
+                  <span className="relative">
+                    Know More
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 group-hover/btn:w-full transition-all duration-300" />
+                  </span>
+                  <svg 
+                    className="w-4 h-4 transform transition-transform group-hover/btn:-translate-x-1" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      strokeWidth={2} 
+                      d="M11 17l-5-5m0 0l5-5m-5 5h12"
+                    />
+                  </svg>
+                </Button>
+              </DialogTrigger>
             </CardHeader>
             
-            <CardContent className="relative">
+            <CardContent className="relative border-t border-orange-500/20">
               <div className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-1 group-hover:scale-105 transition-transform duration-300">
@@ -1527,21 +1551,6 @@ export function ProgramOverview({
                     </LineChart>
                   </ResponsiveContainer>
                 </div>
-              </div>
-
-              {/* Enhanced Know More button */}
-              <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                <DialogTrigger asChild>
-                  <Button 
-                    variant="outline" 
-                    className="bg-white/90 backdrop-blur-sm border-orange-500/30 hover:bg-orange-50 hover:border-orange-500/50 text-orange-600 hover:text-orange-700 transition-all duration-200 shadow-sm hover:shadow-md group/btn"
-                  >
-                    <span className="relative">
-                      Know More
-                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 group-hover/btn:w-full transition-all duration-300" />
-                    </span>
-                  </Button>
-                </DialogTrigger>
               </div>
             </CardContent>
           </Card>
